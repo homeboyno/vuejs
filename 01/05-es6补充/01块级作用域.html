@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es5中的var是没有块级作用域的，反之es6中的let有
+        //1.变量作用域；变量在什么范围内可用
+        {
+            var name = "why";
+            console.log(name);
+        }
+
+        //2.没有块级作用域引起的问题
+        var func;
+        if (true) {
+            var name = 'why'
+
+            func = function () {
+                console.log(name);
+            }
+        }
+        //变量全局污染
+        console.log(name);
+        //es5之前因为if和for都有块级作用域的概念，所以很多是很欧，我们都必须借助于function的作用域来解决外面变量的问题
+        //es6中，加入let，let它是有if和for的块级作用域
+    </script>
+</body>
+</html>

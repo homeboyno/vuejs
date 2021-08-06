@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 错误地使用mustache语法
+        <img src="{{imgUrl}}" alt=""> -->
+        <!-- 正确做法 -->
+        <img v-bind:src="imgUrl" alt="">
+        <a v-bind:href="aHerf">百度一下</a>
+        <!-- 语法糖 -->
+        <img :src="imgUrl" alt="">
+        <a :href="aHerf">百度一下</a>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "hello",
+                imgUrl: "https://i0.hdslb.com/bfs/feed-admin/86da9b924d5b191517639cbb696f52ac4c1dbca7.jpg@880w_388h_1c_95q",
+                aHerf: "http://www.baidu.com"
+            }
+        })
+    </script>
+</body>
+</html>
