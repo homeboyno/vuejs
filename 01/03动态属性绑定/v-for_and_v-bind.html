@@ -15,7 +15,7 @@
     <div id="app">
        <ul>
            <!-- <li v-for="m in movies">{{m}}</li> -->
-           <li @click= "btnClick()" :class="getClass()" v-for="(m, index) in movies">{{index}} {{m}}</li>
+           <li v-for="(m, index) in movies"  @click= "btnClick(index)" :class="{active: currentIndex === index}">{{index+1}}  -->  {{m}}</li>
        </ul>
 
     </div>
@@ -24,26 +24,16 @@
         const app = new Vue({
             el: "#app",
             data: {
-               movies: ['1', '2', '3', '4'],
-               dex: '1',
-               isChange: false,
-               isActive: true,
-               dex: index
+                movies: ['1', '2', '3', '4'],
+                currentIndex: '',
+                isChange: false,
+                isActive: true
             },
             methods: {
-                btnClick: function () {
-                    
-                    this.isChange = !this.isChange
-                },
-                getClass: function (index) {
-                    if (this.isChange == false) return ["active", index]
-                    else return "change"
+                btnClick(index) {
+                    this.currentIndex = index
                 }
-            },
-            computer: {
-
             }
-
         })
     </script>
 </body>
