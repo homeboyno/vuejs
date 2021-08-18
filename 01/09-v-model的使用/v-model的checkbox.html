@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- checkbox单选框
+        <label for="license">
+            <input type="checkbox" id="license" v-model="isLicense">同意协议
+        </label>
+        <h2>你选择的是：{{isLicense}}</h2> -->
+
+    <!-- checkbox多选框 -->
+        <input type="checkbox" name="" id="" value="篮球" v-model="hobbies">篮球
+        <input type="checkbox" name="" id="" value="足球" v-model="hobbies">足球
+        <input type="checkbox" name="" id="" value="乒乓球" v-model="hobbies">乒乓球
+        <input type="checkbox" name="" id="" value="羽毛球" v-model="hobbies">羽毛球
+        <h2>你的爱好是{{hobbies}}</h2>
+        </div>
+
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    //let(变量)/const(常亮)
+    let app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: 'Hello Vue!',
+            isLicense: false, //单选框
+            hobbies: []   //多选框
+        }
+    })
+
+</script>
+
+</html>
