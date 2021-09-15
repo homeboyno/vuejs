@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <h2>我是标题</h2>
+        <p>........</p> -->
+        <my-cpn></my-cpn>
+    </div>
+
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    //ES6
+    
+
+
+    //1.创建组建构造器对象
+    const cpnC = Vue.extend({
+        template: `
+            <div>
+                <h2>123</h2>
+                <p>hheehe</p>
+            </div>`
+    })
+
+    //2.组册组件
+    Vue.component('my-cpn', cpnC)
+    let app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: 'Hello Vue!'
+        }
+    })
+
+</script>
+
+</html>

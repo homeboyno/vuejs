@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    //ES6
+    //1.创建组件构造器
+    const cpnC = Vue.extend({
+        template: `
+            <div>
+                <h2>我是标题</h2>
+                <p>我是内容</p>
+            </div>`
+    })
+
+    //2.组册组件（全局组件，以为着可以在多个vue的事列下使用
+    Vue.component('my-cpn', cpnC)
+
+    //疑问：怎么组册的组件才是全剧组件？
+    let app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: 'Hello Vue!'
+        },
+        components: {
+            //cpn使用组件时的标签名
+            cpn: cpnC
+        }
+    })
+
+</script>
+
+</html>

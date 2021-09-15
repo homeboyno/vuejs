@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn1></cpn1>
+    </div>
+
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    //1.创建第一个组件构造器对象(子组件)
+    // const cpn1 = Vue.extend({
+    //     template: `
+    //         <div>
+    //             <h2>我是标题</h2>
+    //             <p>我是内容</p>
+    //         </div>
+    //     `
+    // })
+
+    //2.组册组件的语法糖
+    Vue.component('cpn1', {
+        template: `
+            <div>
+                <h2>我是标题</h2>
+                <p>我是内容</p>
+            </div>
+        `
+    })
+    let app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: 'Hello Vue!'
+        },
+        components: {
+            //组册局部组件语法糖
+            cpn2: {
+                template: `
+                    <div>
+                        <h2>我是标题</h2>
+                        <p>我是内容</p>
+                    </div>
+                `
+            }
+        }
+    })
+
+</script>
+
+</html>
