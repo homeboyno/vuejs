@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>   
+    <div id="app">
+        <cpn></cpn>
+        <cpn></cpn>
+        <cpn></cpn>
+        <my-cpn ref="aaa"></my-cpn>
+        <button @click="btnClick">按钮</button>
+    </div>
+    <template id="cpn">
+        <div>我是一个子组件</div>
+    </template>
+
+    
+
+</body>
+<script src="../../js/vue.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: 'Hello Vue!',
+        },
+        methods: {
+            btnClick() {
+                // console.log(this.$children);
+                // for (let c of this.$children) {
+                //     console.log(c.name);
+                //     c.showMessage
+                    
+                // }
+                //$refs =>对象类型，默认是一个空的对象，refs=“bbbb”
+                console.log(this.$refs.aaa.name);
+
+            }
+        },
+        components: {
+            cpn: {
+                template: '#cpn',
+                data() {
+                    return {
+                        name: '我是一个子组件'
+                    }
+                },
+                methods: {
+                    showMessage() {
+                        console.log('showMessage');
+                    }
+                }
+            }
+        },
+    })
+
+</script>
+
+</html>

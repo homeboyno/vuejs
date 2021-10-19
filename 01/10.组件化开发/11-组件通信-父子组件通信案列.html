@@ -14,10 +14,12 @@
             <h2>data: {{dnumber1}}</h2>
             <!-- <input type="text" v-model="dnumber1"> -->
             <input type="text" :value="dnumber1" @input='num1Input'>
+            <!-- <input type="text" v-model="dnumber1"> -->
             <h2>props: {{number2}}</h2>
             <h2>data: {{dnumber2}}</h2>
             <!-- <input type="text" v-model="dnumber2"> -->
             <input type="text" :value="dnumber2" @input='num2Input'>
+            <!-- <input type="text" v-model="dnumber2"> -->
         </div>
     </template>
 
@@ -59,6 +61,17 @@
                     num2Input(event) {
                         this.dnumber2 = event.target.value;
                         this.$emit('num2change', this.dnumber2)
+                    }
+                },
+                //使用watch监听，发现dnumber改变后发送给numchange
+                watch: {
+                    dnumber1(newValue) {
+                        this.dnumber2 = newValue * 100
+                        this.$emit('num1change', newValue);
+                    },
+                    dnumber2(newValue) {
+                        this.number1 = newValue / 100;
+                        this.$emit('num2change', newValue);
                     }
                 }
                 
